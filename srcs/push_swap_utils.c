@@ -34,9 +34,9 @@ void	print_stack(t_list *stack)
 	printf("stack\n");
 	while (stack)
 	{
-		number = ft_atoi(stack -> content);
+		number = stack->number;
 		printf("%d\n", number);
-		stack = stack -> next;
+		stack = stack->next;
 	}
 	printf("end\n");
 }

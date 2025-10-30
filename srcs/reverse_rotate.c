@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	rra(t_list **stack_a, int toprint, int *n)
+void	reverse_rotate(t_list **stack_a, char *to_print, int *n)
 {
 	t_list	*temp;
 
@@ -20,37 +20,17 @@ void	rra(t_list **stack_a, int toprint, int *n)
 	if (ft_lstsize(*stack_a) < 2)
 		return ;
 	*stack_a = ft_lstlast(*stack_a);
-	(*stack_a)-> next = temp;
-	while (temp -> next != *stack_a)
-		temp = temp -> next;
-	temp -> next = NULL;
-	if (toprint == 1)
-		write(1, "rra\n", 4);
-	if (n != NULL)
-		*n = *n + 1;
-}
-
-void	rrb(t_list **stack_b, int toprint, int *n)
-{
-	t_list	*temp;
-
-	temp = *stack_b;
-	if (ft_lstsize(*stack_b) < 2)
-		return ;
-	*stack_b = ft_lstlast(*stack_b);
-	(*stack_b)-> next = temp;
-	while (temp -> next != *stack_b)
-		temp = temp -> next;
-	temp -> next = NULL;
-	if (toprint == 1)
-		write(1, "rrb\n", 4);
+	(*stack_a)->next = temp;
+	while (temp->next != *stack_a)
+		temp = temp->next;
+	temp->next = NULL;
+	write(1, to_print, ft_strlen(to_print));
 	if (n != NULL)
 		*n = *n + 1;
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b, int *rtsa, int *rtsb)
 {
-	rra(stack_a, 0, rtsa);
-	rrb(stack_b, 0, rtsb);
-	write(1, "rrr\n", 4);
+	reverse_rotate(stack_a, "rrr\n", rtsa);
+	reverse_rotate(stack_b, "", rtsb);
 }

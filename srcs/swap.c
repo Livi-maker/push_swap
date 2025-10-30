@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldei-sva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 11:23:42 by ldei-sva          #+#    #+#             */
-/*   Updated: 2024/12/16 14:00:08 by ldei-sva         ###   ########.fr       */
+/*   Created: 2025/02/01 13:54:15 by ldei-sva          #+#    #+#             */
+/*   Updated: 2025/02/01 13:54:18 by ldei-sva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	s(t_list **stack, char *to_print)
 {
-	t_list	*new;
+	t_list	*temp;
+	t_list	*temp2;
 
-	new = (t_list *) malloc (sizeof(t_list));
-	if (new == NULL)
-		return (NULL);
-	new -> next = NULL;
-	new -> content = content;
-	new->number = ft_atoi(content);
-	return (new);
+	if (ft_lstsize(*stack) <= 1)
+		return ;
+	temp = *stack;
+	*stack = (*stack)->next;
+	temp2 = (*stack)->next;
+	(*stack)->next = temp;
+	temp->next = temp2;
+	write(1, to_print, ft_strlen(to_print));
+}
+
+void	ss(t_list **stack_a, t_list **stack_b)
+{
+	s(stack_a, "ss\n");
+	s(stack_b, "");
 }

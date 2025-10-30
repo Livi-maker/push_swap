@@ -11,22 +11,43 @@
 # **************************************************************************** #
 
 NAME = push_swap
-
-MY_SOURCES = $(wildcard *.c)
-
-MY_OBJECTS = $(MY_SOURCES:.c=.o)
-
-BONUS_SRC = $(wildcard checker/*.c)
-
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
-
-CC = cc
+##
+## MY_SOURCES = $(wildcard *.c)
+##
+## MY_OBJECTS = $(MY_SOURCES:.c=.o)
+##
+## BONUS_SRC = $(wildcard checker/*.c)
+##
+## BONUS_OBJ = $(BONUS_SRC:.c=.o)
+##
+##
 
 CFLAGS = -Wall -Werror -Wextra
-
 LIBOBJECTS = -Llibft -lft
-
 INCLUDE = -Ilibft -I/usr/include
+
+RM		= rm -f
+MKDIR	= mkdir -p
+
+FILES = final_sorting \
+		check_input \
+		push_swap_utils \
+		main \
+		reverse_rotate \
+		rotate \
+		sorting \
+		sorting_utils \
+		order_three \
+		swap \
+		push
+
+SRCS_DIR = srcs
+OBJS_DIR = objs
+
+MY_SOURCES = $(addsuffix .c, $(FILES))
+MY_OBJECTS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(FILES)))
+
+vpath %.c $(SRCS_DIR)
 
 all: $(NAME)
 
@@ -36,8 +57,11 @@ my_checker: $(BONUS_OBJ) lib
 $(NAME): $(MY_OBJECTS) lib
 	$(CC) $(MY_OBJECTS) $(LIBOBJECTS) -o $(NAME)
 
-%.o:%.c
+$(OBJS_DIR)/%.o:%.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+
+$(OBJS_DIR):
+	$(MKDIR) $(OBJS_DIR)
 
 lib:
 	make -C libft
@@ -46,14 +70,15 @@ lib:
 bonus: my_checker
 
 clean:
-	rm -f $(MY_OBJECTS)
+	$(RM) $(MY_OBJECTS)
 	make clean -C libft
-	rm -f $(BONUS_OBJ)
+	$(RM) $(BONUS_OBJ)
+	$(RM) -r $(OBJS_DIR)
 
 fclean:
-	rm -f $(MY_OBJECTS) $(NAME)
+	$(RM) $(MY_OBJECTS) $(NAME)
 	make fclean -C libft
-	rm -f $(BONUS_OBJ)
-	rm -f my_checker
+	$(RM) $(BONUS_OBJ)
+	$(RM) my_checker
 
 re: fclean all

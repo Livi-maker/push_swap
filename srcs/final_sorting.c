@@ -12,40 +12,6 @@
 
 #include "push_swap.h"
 
-int	is_right_order(t_list *stack)
-{
-	int	n1;
-	int	n2;
-
-	while (stack -> next != NULL)
-	{
-		n1 = ft_atoi(stack-> content);
-		n2 = ft_atoi((stack-> next)-> content);
-		if (n1 > n2)
-			return (0);
-		stack = stack -> next;
-	}
-	return (1);
-}
-
-void	order_three(t_list **stack)
-{
-	int	n1;
-	int	n2;
-
-	while (is_right_order(*stack) != 1)
-	{
-		n1 = ft_atoi((*stack)-> content);
-		n2 = ft_atoi(((*stack)-> next)-> content);
-		if (is_sorted(*stack) == 1 && n1 > n2)
-			ra(stack, 1, NULL);
-		else if (n1 > n2)
-			sa(stack);
-		else
-			rra(stack, 1, NULL);
-	}
-}
-
 void	final_sorting(t_list **stack_a)
 {
 	t_list	*min;
@@ -63,7 +29,7 @@ int	lenghtordered(t_list *stack)
 	lenght = 0;
 	while (stack -> next)
 	{
-		if (ft_atoi(stack -> content) > ft_atoi((stack -> next)-> content))
+		if (stack -> number > (stack -> next)-> number)
 			break ;
 		lenght++;
 		stack = stack -> next;
