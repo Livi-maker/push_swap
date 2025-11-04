@@ -27,6 +27,8 @@ static int	is_int(char *str)
 			sign *= -1;
 		str++;
 	}
+	if (!*str)
+		return (0);
 	while (*str)
 	{
 		if (*str < '0' || *str > '9')

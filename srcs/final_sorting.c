@@ -15,11 +15,16 @@
 void	final_sorting(t_list **stack_a)
 {
 	t_list	*min;
-	int		rotations;
+	int		rotations1;
+	int		rotations2;
 
 	min = findmin(*stack_a);
-	rotations = find_rotations(*stack_a, min);
-	go_for_rotation(rotations, 0, stack_a, NULL);
+	rotations1 = find_rotations(*stack_a, min, 0);
+	rotations2 = find_rotations(*stack_a, min, 1);
+	if (abs_value(rotations2) < abs_value(rotations1))
+		go_for_rotation(rotations2, 0, stack_a, NULL);
+	else
+		go_for_rotation(rotations1, 0, stack_a, NULL);
 }
 
 int	lenghtordered(t_list *stack)
