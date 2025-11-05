@@ -35,7 +35,6 @@ t_list	*findmin(t_list *stack);
 int		is_sorted(t_list *stack);
 void	free_list(t_list **list);
 int		max(int n1, int n2);
-
 void	print_stack(t_list	*stack);
 void	s(t_list **stack_a, char *to_print);
 void	ss(t_list **stack_a, t_list **stack_b);
@@ -54,11 +53,9 @@ int		find_rotations(t_list *stack_a, t_list *node, int flag);
 void	insert_A(t_list **stack_a, t_list **stack_b);
 int		one_input(char *str);
 int		check(char *str);
-
 void	free_array(char **array);
 void	order_three(t_list **stack);
 void	final_sorting(t_list **stack_a);
-int		lenghtordered(t_list *stack);
-t_list	*longest(t_list *stack);
+void	best_move(t_list **stack_a, t_list **stack_b);
 
 #endif

@@ -54,3 +54,19 @@ int	max(int n1, int n2)
 		return (n1);
 	return (n2);
 }
+
+void	go_for_rotation(int rtsa, int rtsb, t_list **stack_a, t_list **stack_b)
+{
+	while (rtsa < 0 && rtsb < 0)
+		rrr(stack_a, stack_b, &rtsa, &rtsb);
+	while (rtsa < 0)
+		reverse_rotate(stack_a, "rra\n", &rtsa);
+	while (rtsb < 0)
+		reverse_rotate(stack_b, "rrb\n", &rtsb);
+	while (rtsa > 0 && rtsb > 0)
+		rr(stack_a, stack_b, &rtsa, &rtsb);
+	while (rtsa > 0)
+		r(stack_a, "ra\n", &rtsa);
+	while (rtsb > 0)
+		r(stack_b, "rb\n", &rtsb);
+}
