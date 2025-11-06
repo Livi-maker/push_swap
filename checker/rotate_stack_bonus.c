@@ -17,7 +17,7 @@ void	ra(t_list **stack_a)
 	t_list	*temp;
 	t_list	*temp2;
 
-	if (ft_lstsize(*stack_a) <= 1)
+	if (ft_lstsize(*stack_a) <= 2)
 		return ;
 	temp2 = *stack_a;
 	temp = ft_lstlast(*stack_a);
@@ -31,7 +31,7 @@ void	rb(t_list **stack_b)
 	t_list	*temp;
 	t_list	*temp2;
 
-	if (ft_lstsize(*stack_b) <= 1)
+	if (ft_lstsize(*stack_b) <= 2)
 		return ;
 	temp2 = *stack_b;
 	temp = ft_lstlast(*stack_b);

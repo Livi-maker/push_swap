@@ -16,25 +16,25 @@ void	do_moves(t_list **stack_a, t_list **stack_b, char *move)
 {
 	if (ft_strncmp(move, "sa\n", 3) == 0)
 		sa(stack_a);
-	if (ft_strncmp(move, "sb\n", 3) == 0)
+	else if (ft_strncmp(move, "sb\n", 3) == 0)
 		sb(stack_b);
-	if (ft_strncmp(move, "pa\n", 3) == 0)
+	else if (ft_strncmp(move, "pa\n", 3) == 0)
 		pa(stack_a, stack_b);
-	if (ft_strncmp(move, "pb\n", 3) == 0)
+	else if (ft_strncmp(move, "pb\n", 3) == 0)
 		pb(stack_a, stack_b);
-	if (ft_strncmp(move, "ss\n", 3) == 0)
+	else if (ft_strncmp(move, "ss\n", 3) == 0)
 		ss(stack_a, stack_b);
-	if (ft_strncmp(move, "ra\n", 3) == 0)
+	else if (ft_strncmp(move, "ra\n", 3) == 0)
 		ra(stack_a);
-	if (ft_strncmp(move, "rb\n", 3) == 0)
+	else if (ft_strncmp(move, "rb\n", 3) == 0)
 		rb(stack_b);
-	if (ft_strncmp(move, "rr\n", 3) == 0)
+	else if (ft_strncmp(move, "rr\n", 3) == 0)
 		rr(stack_a, stack_b);
-	if (ft_strncmp(move, "rra\n", 4) == 0)
+	else if (ft_strncmp(move, "rra\n", 4) == 0)
 		rra(stack_a);
-	if (ft_strncmp(move, "rrb\n", 4) == 0)
+	else if (ft_strncmp(move, "rrb\n", 4) == 0)
 		rrb(stack_b);
-	if (ft_strncmp(move, "rrr\n", 4) == 0)
+	else if (ft_strncmp(move, "rrr\n", 4) == 0)
 		rrr(stack_a, stack_b);
 }
 

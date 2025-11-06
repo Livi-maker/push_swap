@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-# include "libft.h"
+# include "../libft/libft.h"
 
 void	create_stack(t_list **stack_a, int ac, char **av);
 void	print_stack(t_list	*stack);

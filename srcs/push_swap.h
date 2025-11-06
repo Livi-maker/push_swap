@@ -19,14 +19,14 @@
 
 typedef struct s_rotations
 {
-	int efficiency;
-	int move;
-	t_list *a_el;
-	t_list *b_el;
-	int	ra;
-	int rb;
-	int rra;
-	int rrb;
+	int		efficiency;
+	int		move;
+	t_list	*a_el;
+	t_list	*b_el;
+	int		ra;
+	int		rb;
+	int		rra;
+	int		rrb;
 }	t_rotations;
 
 int		create_stack_and_check(int ac, char **av, t_list **stack_a);
@@ -57,5 +57,9 @@ void	free_array(char **array);
 void	order_three(t_list **stack);
 void	final_sorting(t_list **stack_a);
 void	best_move(t_list **stack_a, t_list **stack_b);
+void	set_efficiency(t_rotations *moves, int move, int efficiency);
+int		set_rotations(t_rotations *info, char flag);
+int		find_rotations(t_list *stack_a, t_list *node, int flag);
+void	fill_info(t_rotations *info, t_list *stack_a, t_list *stack_b);
 
 #endif

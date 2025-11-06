@@ -27,20 +27,6 @@ void	create_stack(t_list **stack_a, int ac, char **av)
 	}
 }
 
-void	print_stack(t_list *stack)
-{
-	int	number;
-
-	printf("stack\n");
-	while (stack)
-	{
-		number = ft_atoi(stack -> content);
-		printf("%d\n", number);
-		stack = stack -> next;
-	}
-	printf("end\n");
-}
-
 void	free_array(char **array)
 {
 	int	n;

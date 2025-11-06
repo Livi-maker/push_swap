@@ -11,16 +11,6 @@
 # **************************************************************************** #
 
 NAME = push_swap
-##
-## MY_SOURCES = $(wildcard *.c)
-##
-## MY_OBJECTS = $(MY_SOURCES:.c=.o)
-##
-## BONUS_SRC = $(wildcard checker/*.c)
-##
-## BONUS_OBJ = $(BONUS_SRC:.c=.o)
-##
-##
 
 CFLAGS = -Wall -Werror -Wextra
 LIBOBJECTS = -Llibft -lft
@@ -29,7 +19,7 @@ INCLUDE = -Ilibft -I/usr/include
 RM		= rm -f
 MKDIR	= mkdir -p
 
-FILES = final_sorting \
+FILES = algorithm \
 		check_input \
 		push_swap_utils \
 		main \
@@ -39,15 +29,26 @@ FILES = final_sorting \
 		sorting_utils \
 		order_three \
 		swap \
-		push
+		push \
+		algorithm_utils
+
+BONUS = operations_bonus \
+		parser_bonus \
+		push_swap_utils_bonus \
+		reverse_rotate_bonus \
+		rotate_stack_bonus \
+		tester_bonus
 
 SRCS_DIR = srcs
 OBJS_DIR = objs
+BONUS_DIR = checker
 
 MY_SOURCES = $(addsuffix .c, $(FILES))
+BONUS_SOURCES = $(addsuffix .c, $(BONUS))
 MY_OBJECTS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(FILES)))
+BONUS_OBJ = $(addprefix $(BONUS_DIR)/, $(addsuffix .o, $(BONUS)))
 
-vpath %.c $(SRCS_DIR)
+vpath %.c $(SRCS_DIR):$(CHECKER)
 
 all: $(NAME)
 

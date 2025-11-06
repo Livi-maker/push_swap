@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static t_list **inizialize(void)
+static t_list	**inizialize(void)
 {
 	t_list	**list;
 
