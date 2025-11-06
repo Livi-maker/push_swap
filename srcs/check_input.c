@@ -66,24 +66,25 @@ int	create_stack_and_check(int ac, char **av, t_list **stack_a)
 	int		i;
 	char	**input;
 
-	n = 1;
-	while (n < ac)
+	n = 0;
+	while (++n < ac)
 	{
 		input = ft_split(av[n], ' ');
+		if (!(*input))
+			return (free(input), free_list(stack_a), 0);
 		i = 0;
 		while (input && input[i])
 		{
-			if (!is_int(input[i]) || !check_duplicate(input[i], *stack_a))
+			if (!input[0] || !is_int(input[i]) || !check_duplicate(input[i], *stack_a))
 			{
 				free_list(stack_a);
-				return (free(input[i]), free(input), 0);
+				return (free_array(input + i), free(input), 0);
 			}
 			else
 				add_to_stack(input[i], stack_a);
 			i++;
 		}
 		free(input);
-		n++;
 	}
 	return (1);
 }

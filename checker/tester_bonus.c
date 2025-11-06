@@ -69,6 +69,7 @@ int	order_stack(t_list **stack_a)
 {
 	char	*move;
 	t_list	**stack_b;
+	int		len;
 
 	stack_b = malloc(sizeof(t_list *));
 	*stack_b = NULL;
@@ -82,9 +83,10 @@ int	order_stack(t_list **stack_a)
 		do_moves(stack_a, stack_b, move);
 		free (move);
 	}
+	len = ft_lstsize(*stack_b);
 	ft_lstclear(stack_b, free);
 	free(stack_b);
-	return (1);
+	return (!len);
 }
 
 int	main(int ac, char **av)

@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		stack_a = inizialize();
-		if (create_stack_and_check(ac, av, stack_a) == 0)
+		if (create_stack_and_check(ac, av, stack_a) == 0 || *stack_a == NULL)
 		{
 			ft_putstr_fd("Error\n", 2);
 			return (0);

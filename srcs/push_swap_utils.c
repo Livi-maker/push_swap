@@ -58,5 +58,4 @@ void	free_array(char **array)
 		free(array[n]);
 		n++;
 	}
-	free(array);
 }
