@@ -41,7 +41,7 @@ static int	is_int(char *str)
 	return (1);
 }
 
-static int	check_duplicate(char *line, t_list *stack_a)
+static int	check_dup(char *line, t_list *stack_a)
 {
 	while (stack_a)
 	{
@@ -64,27 +64,27 @@ int	create_stack_and_check(int ac, char **av, t_list **stack_a)
 {
 	int		n;
 	int		i;
-	char	**input;
+	char	**in;
 
 	n = 0;
 	while (++n < ac)
 	{
-		input = ft_split(av[n], ' ');
-		if (!(*input))
-			return (free(input), free_list(stack_a), 0);
+		in = ft_split(av[n], ' ');
+		if (!(*in))
+			return (free(in), free_list(stack_a), 0);
 		i = 0;
-		while (input && input[i])
+		while (in && in[i])
 		{
-			if (!input[0] || !is_int(input[i]) || !check_duplicate(input[i], *stack_a))
+			if (!in[0] || !is_int(in[i]) || !check_dup(in[i], *stack_a))
 			{
 				free_list(stack_a);
-				return (free_array(input + i), free(input), 0);
+				return (free_array(in + i), free(in), 0);
 			}
 			else
-				add_to_stack(input[i], stack_a);
+				add_to_stack(in[i], stack_a);
 			i++;
 		}
-		free(input);
+		free(in);
 	}
 	return (1);
 }

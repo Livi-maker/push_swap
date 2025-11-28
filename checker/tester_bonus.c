@@ -79,7 +79,10 @@ int	order_stack(t_list **stack_a)
 		if (!move)
 			break ;
 		if (is_correct(move) == 0)
-			return (free (move), 0);
+		{
+			ft_lstclear(stack_b, free);
+			return (free(stack_b), free(move), 0);
+		}
 		do_moves(stack_a, stack_b, move);
 		free (move);
 	}
@@ -97,6 +100,7 @@ int	main(int ac, char **av)
 	if (parsing_input(ac, av, stack_a) == 0 || order_stack(stack_a) == 0)
 	{
 		ft_putstr_fd("Error\n", 2);
+		ft_lstclear(stack_a, free);
 		free(stack_a);
 		return (0);
 	}

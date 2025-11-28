@@ -41,7 +41,7 @@ int	check(char *str)
 	return (1);
 }
 
-int	check_duplicate(char *line, t_list *stack_a)
+int	check_dup(char *line, t_list *stack_a)
 {
 	while ((stack_a -> content) != line)
 	{
@@ -59,7 +59,7 @@ int	correct_input(char **matrix, t_list *stack_a)
 	i = 0;
 	while (matrix[i])
 	{
-		if (check(matrix[i]) == 0 || check_duplicate(matrix[i], stack_a) == 0)
+		if (check(matrix[i]) == 0 || check_dup(matrix[i], stack_a) == 0)
 			return (0);
 		i++;
 	}
